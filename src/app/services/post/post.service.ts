@@ -18,21 +18,21 @@ export class PostService {
   constructor(private httpClient: HttpClient) { }
 
   getPosts(): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.baseURL);
+    return this.httpClient.get<Post[]>(`${this.baseURL}/api/posts`);
   }
 
   //recibe la respuesta ok del backend > PostController > createPost()
   createPost(postDTO: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseURL}/create`, postDTO);
+    return this.httpClient.post<any>(`${this.baseURL}/api/posts/create`, postDTO);
   }
 
   getPostsByUserId(userId: number): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(`${this.baseURL}/user/${userId}`);
+    return this.httpClient.get<Post[]>(`${this.baseURL}/api/posts/user/${userId}`);
   }
 
   deletePost(postId: number): Observable<any> {
     console.log("Entrando en post.service - deletePost()")
-    return this.httpClient.delete<any>(`${this.baseURL}/delete/${postId}`).pipe(
+    return this.httpClient.delete<any>(`${this.baseURL}/api/posts/delete/${postId}`).pipe(
       //postDeleted es un Subject que emite un valor cada vez que se elimina un post
       tap(() => this.postDeleted.next())
     );

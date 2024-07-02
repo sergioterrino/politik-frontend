@@ -21,27 +21,27 @@ export class UserService {
 
   //Este metodo obtiene todos los usuarios del backend
   getUsersList(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.baseURL}`);
+    return this.httpClient.get<User[]>(`${this.baseURL}/api/users`);
   }
 
   //Comrpobar si un usuario existe en el backend byPhone
   getUserByPhone(phone: string): Observable<User> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.httpClient.post<User>(`${this.baseURL}/phone`, phone, { headers: headers });
+    return this.httpClient.post<User>(`${this.baseURL}/api/users/phone`, phone, { headers: headers });
   }
 
   //checkeo si existe algun usuario con el mismo email
   getUserByEmail(email: string): Observable<User> {
-    return this.httpClient.post<User>(`${this.baseURL}/email`, email);
+    return this.httpClient.post<User>(`${this.baseURL}/api/users/email`, email);
   }
 
   getUserByUsername(username: string): Observable<User> {
-    return this.httpClient.post<User>(`${this.baseURL}/username`, username);
+    return this.httpClient.post<User>(`${this.baseURL}/api/users/username`, username);
   }
 
   //mandará el userDTO al userController del backend para que setee los datos y los almacene en la base de datos
   signup(userDTO: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseURL}/signup`, userDTO, {
+    return this.httpClient.post<any>(`${this.baseURL}/api/users/signup`, userDTO, {
       observe: 'response'
     }).pipe(map((response: HttpResponse<any>) => {
       const body = response.body;
@@ -61,7 +61,7 @@ export class UserService {
 
   //mando al backend el username y el password para que compruebe si es correcto
   // login(username: string, password: string): Observable<any> {
-  //   return this.httpClient.post<any>(`${this.baseURL}/login`, { username, password }, {
+  //   return this.httpClient.post<any>(`${this.baseURL}/api/users/login`, { username, password }, {
   //     observe: 'response'
   //   }).pipe(map((response: HttpResponse<any>) => {
   //     const body = response.body;
@@ -81,7 +81,7 @@ export class UserService {
 
   login(username: string, password: string): Observable<any> {
     console.log("user.service.ts - login() -------------------------------us");
-    return this.httpClient.post(`${this.baseURL}/login`, { username, password }, { responseType: 'text' as 'json', observe: 'body' });
+    return this.httpClient.post(`${this.baseURL}/api/users/login`, { username, password }, { responseType: 'text' as 'json', observe: 'body' });
   }
 
   getToken() {
