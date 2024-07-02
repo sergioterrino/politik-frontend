@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, map, tap } from 'rxjs';
 import { User } from 'src/app/models/User';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ import { User } from 'src/app/models/User';
 export class UserService {
 
   //Esta URL obtine el listado de todos los usuarios en el backend
-  private baseURL = 'http://localhost:8080/api/users';
+  // private baseURL = 'http://localhost:8080/api/users';
+  // private baseURL = 'https://politik-backend-production.up.railway.app'; //pruebo cambiarla para la de railway
+  private baseURL = environment.apiUrl;
+
   private currentUser!: User;
 
   constructor(private httpClient: HttpClient, private router: Router) { }
