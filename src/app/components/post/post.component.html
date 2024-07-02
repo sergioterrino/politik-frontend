@@ -1,0 +1,39 @@
+<div id="content">
+  <main>
+    <div id="imgProfile">
+      <a routerLink="/profile">
+        <img src="https://github.com/mdo.png" alt="profile photo" width="42" height="42" class="rounded-circle me-3">
+      </a>
+    </div>
+    <div id="data">
+      <div id="header">
+        <div id="name"><a routerLink="/profile/username">{{post.name}} {{post.lastname}}</a></div>
+        <div id="username"><a routerLink="/profile/username">&#64;{{post.username}}</a></div>
+        <div id="date">·&nbsp;&nbsp;&nbsp;{{getTimeSincePosted(post.createdAt)}}</div>
+        <!-- <div id="btnHeader"><button class="btn btn-dark"><i class="fa-solid fa-ellipsis"></i></button></div> -->
+        <div id="btnHeader" >
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+            <li><button class="dropdown-item delete" (click)="deletePost(post.id)"><i class="fa-solid fa-trash"></i>Eliminar</button></li>
+            <li><button class="dropdown-item" (click)="editPost(post.id)"><i class="fa-solid fa-pen-to-square"></i>Editar</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="text">{{post.text}}</div>
+      <div id="media">
+        <!-- <img src="../../../assets/images/fotoPost.jpg" alt="foto Post" height="auto"> -->
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div id="btns">
+      <nav class="navbar">
+        <a class="navbar-brand text-center" href="modal"><i class="fa-regular fa-comment"></i>&nbsp;104</a>
+        <a class="navbar-brand text-center" href="abrir popover"><i class="fa-solid fa-retweet"></i>&nbsp;1.5K</a>
+        <a class="navbar-brand text-center" href="accion dar like"><i class="fa-regular fa-heart"></i>&nbsp;5.3K</a>
+      </nav>
+    </div>
+  </footer>
+</div>

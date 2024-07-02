@@ -1,0 +1,22 @@
+<div id="container">
+  <app-side-bar></app-side-bar>
+  <div id="main">
+    <div id="search">
+      <app-search-bar (search)="observerChangeSearch($event)"></app-search-bar>
+    </div>
+    <div id="results">
+      <div id="user" *ngFor="let user of filteredUsers" [routerLink]="['/profile', user.username]">
+        <div id="imgUser">
+          <img src="https://i.pravatar.cc/300" alt="profile photo" width="60" height="60" class="rounded-circle me-4">
+        </div>
+        <div id="username">
+          <div class="name"><h5>{{user.name}} {{user.lastname}}</h5></div>
+          <div><h5>&#64;{{user.username}}</h5></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="rightBar">
+    <app-suggestions></app-suggestions>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<form (ngSubmit)="onSubmit(formLogin)" [formGroup]="formLogin">
+  <div *ngIf="!showSecondPart" formGroupName="firstPart">
+    <button id="closeBtn" mat-button (click)="closeDialog()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="title">
+      <h1>POLITIK</h1>
+    </div>
+    <h3 class="description">Inicia sesión</h3>
+    <div class="form-group" [class.invalid]="formLogin.get('firstPart.namePhoneEmail') && formLogin.get('firstPart.namePhoneEmail')?.invalid && formLogin.get('firstPart.namePhoneEmail')?.touched">
+      <input type="text" id="namePhoneEmail" class="form-control" placeholder="" formControlName="namePhoneEmail">
+      <label for="namePhoneEmail">Teléfono, email o nombre de usuario</label>
+    </div>
+    <div *ngIf="formLogin.get('firstPart.namePhoneEmail') && formLogin.get('firstPart.namePhoneEmail')?.invalid && formLogin.get('firstPart.namePhoneEmail')?.touched" class="error-message">
+      Debe introducir su usuario
+    </div>
+    <div *ngIf="usernameNotExists || phoneNotExists || emailNotExists" class="error-message">
+      No existe el usuario
+    </div>
+    <div class="btn-container">
+      <button type="button" class="btn btn-primary" (click)="checkUser()">Siguiente</button>
+      <button type="button" class="btn btn-secondary" (click)="openForgotPassword()">¿Olvidaste la contraseña?</button>
+    </div>
+    <div class="register-link">
+      <small>¿No tienes una cuenta? <a href="/landing">Regístrate</a></small>
+    </div>
+  </div>
+
+  <div *ngIf="showSecondPart" formGroupName="secondPart">
+    <button id="closeBtn" mat-button (click)="closeDialog()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="title">
+      <h1>POLITIK</h1>
+    </div>
+    <h3 class="description">Introduce tu contraseña</h3>
+    <div class="form-group">
+      <input type="text" class="form-control" id="namePhoneEmail2" formControlName="namePhoneEmail2" readonly>
+      <label for="namePhoneEmail2">Teléfono, email o nombre de usuario</label>
+    </div>
+    <div class="form-group" id="formGroupPassword" [class.invalid]="formLogin.get('secondPart.password') && formLogin.get('secondPart.password')?.invalid && formLogin.get('secondPart.password')?.touched">
+      <div>
+        <input [type]="showPassword ? 'text' : 'password'" id="password" class="form-control" placeholder="" formControlName="password">
+        <label for="password">Contraseña</label>
+      </div>
+      <div id="eye">
+        <i (click)="togglePassword()" class="fa" [ngClass]="{'fa-eye-slash': showPassword, 'fa-eye': !showPassword}"></i>
+      </div>
+    </div>
+    <div *ngIf="formLogin.get('secondPart.password') && formLogin.get('secondPart.password')?.errors?.['required'] && formLogin.get('secondPart.password')?.touched" class="error-message">
+      Debe introducir su contraseña
+    </div>
+    <div *ngIf="formLogin.get('secondPart.password') && formLogin.get('secondPart.password')?.errors?.['minlength']" class="error-message">
+      La contraseña debe tener mínimo 8 caracteres
+    </div>
+    <small id="forgotPassword"><a (click)="openForgotPassword()">¿Olvidaste la contraseña?</a></small>
+    <div class="btn-container">
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      <button class="btn btn-secondary" (click)="goBack()">Volver</button>
+    </div>
+    <div class="register-link">
+      <small>¿No tienes una cuenta? <a href="/landing">Regístrate</a></small>
+    </div>
+  </div>
+</form>

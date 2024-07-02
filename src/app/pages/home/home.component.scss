@@ -1,0 +1,154 @@
+#container {
+  width: 100%;
+  padding: 0% 7%;
+  background-color: rgb(0, 0, 0);
+  // display: flex;
+}
+
+app-side-bar{
+  width: 17%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+#main {
+  color: white;
+  width: 55.7%;
+  //   width: 54.7%;
+  height: 100%;
+  margin-left: 19.8%;
+  // padding: 1% 0;
+
+
+  #writePost {
+    width: 98%;
+    min-height: 10em;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 5px;
+    padding: 2%;
+    margin: 1%;
+    margin-bottom: 2%;
+    display: flex;
+
+    // #img {}
+    #panel {
+      width: 100%;
+      margin-left: 1%;
+
+      #text {
+        color: white;
+
+        textarea {
+          width: 100%;
+          font-size: 1.2em;
+          padding: 1%;
+          background-color: transparent;
+          color: white;
+          margin: 0 auto;
+          border: none;
+          resize: none; // Esto evita que el área de texto sea redimensionable
+        }
+
+        textarea:focus {
+          outline: none;
+        }
+
+      }
+
+      #btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        //para eliminar el gap entre los items
+        .navbar {
+          justify-content: flex-start !important;
+        }
+
+        nav {
+          width: 50%;
+          justify-items: center;
+          align-items: center;
+
+          a {
+            width: 14%;
+            color: dodgerblue;
+            border-radius: 50px;
+          }
+
+          a:hover {
+            background-color: rgb(56, 91, 126, 0.5);
+          }
+
+          .navbar-brand {
+            margin-right: 0;
+          }
+        }
+
+        #postIt {
+          width: 50%;
+          text-align: end;
+
+          button {
+            width: 35%;
+            border-radius: 25px;
+            font-size: 1.2vw;
+          }
+        }
+      }
+    }
+  }
+
+  #content{
+    width: 100%;
+  }
+}
+
+
+#rightBar{
+  position: fixed;
+  top: 0;
+  right: 7%;
+
+  width:21%;
+  height: 100%;
+  padding: 1% 0 1% 1%;
+  border-left: 1px solid rgb(63, 63, 63);
+
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+
+  #results{
+    width: 100%;
+    margin: 2% auto;
+    box-shadow: 0px 0px 5px 0px rgba(61, 61, 61, 0.75);
+    #user {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 2%;
+      background-color: rgb(0, 0, 0);
+
+      #username {
+        width: 54%;
+        overflow: hidden; // Evita que el texto sobresalga
+        white-space: nowrap; // Evita saltos de línea
+        h5 {
+          margin: 0;
+          padding: 0;
+          font-size: 1.2rem;
+          color: rgb(122, 122, 122);
+        }
+        .name h5 {
+          color: white;
+        }
+      }
+    }
+    #user:hover{
+      background-color: rgb(15, 15, 15);
+    }
+  }
+}

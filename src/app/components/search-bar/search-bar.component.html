@@ -1,0 +1,11 @@
+<div id="searchBar">
+  <nav id="navbar" class="navbar navbar-expand-lg rounded-5">
+    <div class="container-fluid">
+      <form class="d-flex align-items-center" role="search">
+        <i id="i" class="fa-solid fa-magnifying-glass text-secondary me-1"></i>
+        <input class="form-control bg-transparent border-0" type="search" placeholder="Search" aria-label="Search"
+        (focus)="onFocus()" (blur)="onBlur()" [formControl]="control">
+      </form>
+    </div>
+  </nav>
+</div>

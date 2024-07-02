@@ -1,0 +1,44 @@
+<div id="container">
+  <app-side-bar></app-side-bar>
+  <div id="main">
+    <div id="writePost" *ngIf="showCreatorPosts">
+      <div id="img">
+        <img src="https://github.com/mdo.png" alt="profile photo" width="52" height="52" class="rounded-circle me-3">
+      </div>
+      <div id="panel">
+        <div id="text">
+          <textarea placeholder="What is happening ?" #myTextarea (input)="onInput($event)"></textarea>
+        </div>
+        <div id="btns">
+          <nav class="navbar">
+            <a class="navbar-brand text-center" href="#"><i class="fa-solid fa-square-poll-vertical"></i></a>
+            <a class="navbar-brand text-center" href=""><i class="fa-regular fa-image"></i></a>
+            <a class="navbar-brand text-center" href=""><i class="fa-regular fa-face-smile"></i></a>
+          </nav>
+          <div id="postIt">
+            <button class="btn btn-primary" (click)="onSubmitPost()">Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <app-post *ngFor="let post of posts" [post]="post"></app-post>
+      <!-- <app-posts-profile></app-posts-profile> -->
+    </div>
+  </div>
+  <div id="rightBar">
+    <app-search-bar (search)="observerChangeSearch($event)"></app-search-bar>
+    <div id="results" *ngIf="filteredUsers.length != 0">
+      <div id="user" *ngFor="let user of filteredUsers" [routerLink]="['/profile', user.username]">
+        <div id="imgUser">
+          <img src="https://i.pravatar.cc/300" alt="profile photo" width="60" height="60" class="rounded-circle me-4">
+        </div>
+        <div id="username">
+          <div class="name"><h5>{{user.name}} {{user.lastname}}</h5></div>
+          <div><h5>&#64;{{user.username}}</h5></div>
+        </div>
+      </div>
+    </div>
+    <app-suggestions></app-suggestions>
+  </div>
+</div>

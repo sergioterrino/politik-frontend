@@ -1,0 +1,18 @@
+<div id="panel">
+  <button id="closeBtn" mat-button (click)="closeDialog()"><i class="fa-solid fa-xmark"></i></button>
+  <div id="content">
+    <div id="text">
+      <textarea placeholder="What is happening ?" #myTextarea (input)="onInput($event)"></textarea>
+    </div>
+    <div id="btns">
+      <nav class="navbar">
+        <a class="navbar-brand text-center" href="#"><i class="fa-solid fa-square-poll-vertical"></i></a>
+        <a class="navbar-brand text-center" href=""><i class="fa-regular fa-image"></i></a>
+        <a class="navbar-brand text-center" href=""><i class="fa-regular fa-face-smile"></i></a>
+      </nav>
+      <div id="postIt">
+        <button class="btn btn-primary" (click)="onSubmitPost()">Post</button>
+      </div>
+    </div>
+  </div>
+</div>

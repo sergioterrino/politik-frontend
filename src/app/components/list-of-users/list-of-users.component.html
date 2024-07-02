@@ -1,0 +1,33 @@
+<h2 class="text-center">List Of Users</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Username</th>
+      <th>Rol</th>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Created_at</th>
+      <th>Birthday</th>
+      <th>DNI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.username }}</td>
+      <td>{{ user.rol }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.lastname }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.createdAt }}</td>
+      <td>{{ user.birthday }}</td>
+      <td>{{ user.dni }}</td>
+      <!-- <td>
+        <button (click)="editUser(user)">Editar</button>
+        <button (click)="deleteUser(user)">Eliminar</button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>

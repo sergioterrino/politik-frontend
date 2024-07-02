@@ -1,0 +1,188 @@
+form {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 4% 10%;
+  background-color: #000000;
+  border-radius: 0.9em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+
+  #closeBtn {
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1%;
+    color: #ffffff;
+    font-size: 1.5vw;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 5%;
+  font-family: 'Passion One', sans-serif;
+
+  h1 {
+    font-size: 3vw;
+    margin: 0;
+    color: #ffffff;
+  }
+}
+
+
+
+.description {
+  margin-bottom: 7%;
+  color: #ffffff;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 3%;
+  margin-top: 8%;
+
+  .form-control {
+    font-size: 1em;
+    padding: 4.5%;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    width: 90%;
+    background-color: transparent;
+    color: white;
+    /* Color del texto */
+    margin: 0 auto;
+    /* Esto centrará el input horizontalmente */
+    display: block;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: dodgerblue;
+  }
+
+  label {
+    position: absolute;
+    top: 32%;
+    left: 8%;
+    transition: all 0.3s ease;
+    color: rgb(63, 63, 63);
+    pointer-events: none;
+    background-color: transparent;
+    font-size: 1.3vw;
+  }
+
+  .form-control:focus+label,
+  .form-control:not(:placeholder-shown)+label {
+    font-size: 1vw;
+    top: 0;
+    color: rgb(47, 90, 133);
+  }
+
+  //Esto para la 2parte del login
+  #namePhoneEmail2 {
+    color: rgb(63, 63, 63);
+    background-color: rgba(32, 32, 32, 0.4);
+    border: none;
+  }
+
+  #namePhoneEmail2:focus+label,
+  #namePhoneEmail2:not(:placeholder-shown)+label {
+    font-size: 1vw;
+    top: 0;
+    color: rgb(39, 39, 39);
+  }
+
+}
+
+//esto para meter el ojo en el input password
+#formGroupPassword {
+  position: relative;
+  margin-bottom: 3%;
+
+  #eye {
+    position: absolute;
+    top: 32%;
+    right: 8%;
+    transition: all 0.3s ease;
+    color: rgb(63, 63, 63);
+    background-color: transparent;
+    font-size: 1.3vw;
+  }
+}
+
+
+.form-group:nth-of-type(3) {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+#forgotPassword {
+  width: 90%;
+  display: block;
+  text-align: end;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  color: rgb(26, 102, 179);
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 90%;
+    height: 35%;
+    margin: 2% auto;
+    padding: 2% 0% 2% 0%;
+    border-radius: 1.5em;
+    font-size: 1.5vw;
+    line-height: 100%;
+    letter-spacing: 0.02vw;
+  }
+
+  .btn-primary {
+    font-weight: bold;
+    background-color: whitesmoke;
+    color: rgb(0, 0, 0);
+    margin-bottom: 3%;
+  }
+
+  .btn-secondary {
+    color: whitesmoke;
+
+    background-color: transparent;
+  }
+}
+
+.register-link {
+  text-align: center;
+  margin: 3% auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  /* centra horizontalmente el elemento en relación con su contenedor principal (form)*/
+  transform: translateX(-50%);
+
+  a {
+    text-decoration: none;
+  }
+}
+
+/*-----para los errores del form----------------------------------*/
+.invalid input.form-control {
+  border-color: red;
+}
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: -2%;
+}
+

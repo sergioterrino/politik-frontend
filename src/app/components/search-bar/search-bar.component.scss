@@ -1,0 +1,33 @@
+#searchBar {
+  width: 100%;
+  // height: 100%; //todo esto lo pongo en el componente padre
+  // padding: 7% 0 7% 5%;
+
+  .navbar {
+    background-color: rgba(41, 41, 41, 0.4);
+
+    form{
+      width:100%;
+      i {
+        font-size: 1rem;
+      }
+      input{
+        color: white;
+      }
+      input::placeholder{
+        color: rgb(168, 168, 168); //para cambiar el color del texto del placeholder
+      }
+    }
+  }
+  //para cuando se clicke en el input
+  input.form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .navbar.focused {
+    border: 1px solid rgba(13,110,253,255);
+    background-color: transparent;
+  }
+
+}
+

@@ -1,0 +1,156 @@
+h2{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: black;
+}
+
+#content{
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+}
+
+
+.title{
+  margin: auto;
+  width: 80%;
+  height: 20%;
+  position: absolute;
+  top: 0%;
+  bottom: 75%;
+  right:0%;
+  left: 0%;
+  color: rgb(255, 255, 255);
+  font-family: 'Passion One', sans-serif;
+  letter-spacing: 0.02vw;
+  font-size: 6vw;
+  font-weight: bolder;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.description{
+  margin: auto;
+  width: 80%;
+  height: 20%;
+  position: absolute;
+  top: 0%;
+  bottom: 40%;
+  right:0%;
+  left: 0%;
+  color: rgb(255, 255, 255);
+  font-style: bold;
+  letter-spacing: 0.02vw;
+  font-size: 2vw;
+  font-weight: bolder;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.rol{
+  margin: auto;
+  width: 80%;
+  height: 20%;
+  position: absolute;
+  top: 0%;
+  bottom: 10%;
+  right:0%;
+  left: 0%;
+  color: rgb(255, 255, 255);
+  font-style: bold;
+  letter-spacing: 0.02vw;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  text-align: center;
+  vertical-align: middle;
+  // z-index: 1;
+}
+
+.btn_container{
+  height: 60%;
+  width: 100%;
+  display: flex;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  top: 40%;
+  bottom: 0%;
+  right:0%;
+  left: 0%;
+}
+
+.image-container{
+  height: 80%;
+  width: 50%;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  h2{
+    color: white;
+    font-size: 2vw;
+    font-weight: bolder;
+  }
+  img{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin-bottom: 8%;
+    filter: brightness(60%);
+  }
+}
+
+#btnL:hover{filter: brightness(180%);}
+#btnL:active{
+  height: 79.5%;
+  width: 49.7%;
+}
+
+#btnR:hover{filter: brightness(180%);}
+#btnR:active{
+  height: 79.5%;
+  width: 49.7%;
+}
+
+.leftBtn{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.rightBtn{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: #070707;
+  text-decoration: none;
+  text-align: center;
+  transition: filter 0.3s ease; /* Transición suave para el efecto hover */
+}

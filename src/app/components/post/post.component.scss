@@ -1,0 +1,139 @@
+#content {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  padding: 1%;
+  padding-bottom: 0%;
+  background-color: rgb(0, 0, 0);
+
+  main {
+    display: flex;
+    gap: 1%;
+    // margin-bottom: 1%;
+
+    #imgProfile {}
+
+    #data {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      #header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2%;
+        width: 100%;
+
+        #name {
+          color: white;
+          font-weight: bold;
+
+          a {
+            text-decoration: none;
+            color: white;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+
+        #username {
+          color: rgb(122, 122, 122);
+
+          a {
+            text-decoration: none;
+            color: rgb(122, 122, 122);
+          }
+        }
+
+        #date {
+          color: rgb(122, 122, 122);
+          font-size: 0.93em;
+          height: 55%; // para que esté alineado por abajo con lo demás del header
+        }
+
+        #btnHeader {
+          margin-left: auto; //sería como el justify-self del Grid
+
+          button {
+            border: none;
+            border-radius: 50px;
+            background-color: transparent;
+          }
+
+          button:hover {
+            background-color: rgb(32, 32, 32);
+          }
+
+          li button {
+            border-radius: 0px;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            font-size: 1rem;
+            i{
+              margin-right: 10%;
+            }
+          }
+          .delete{
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+          }
+          .dropdown-menu {
+            background-color: rgb(0, 0, 0);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+            padding: 0;
+          }
+          // quito la flechita del dropdown que viene por defecto
+          .btn.dropdown-toggle::after {
+            display: none;
+          }
+        }
+      }
+
+
+      #text {
+        margin-bottom: 1%;
+      }
+
+      #media {
+        width: 100%;
+
+        img {
+          width: auto;
+          max-width: 100%;
+          border: 1px solid rgb(32, 32, 32);
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+
+  footer {
+
+    #btns {
+
+      .navbar {
+        justify-content: space-around;
+
+        a {
+          width: 10%;
+          font-size: 1em;
+          color: rgb(131, 131, 131);
+          margin-right: 0;
+
+          i {
+            font-size: 1.2em;
+          }
+        }
+
+        a:hover {
+          border-radius: 50px;
+          background-color: rgb(37, 37, 37);
+        }
+      }
+    }
+  }
+
+}

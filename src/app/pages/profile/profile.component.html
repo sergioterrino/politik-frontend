@@ -1,0 +1,78 @@
+<div id="container">
+  <app-side-bar #sidebar></app-side-bar>
+  <div id="main" #main>
+    <header>
+      <button class="btn"><i class="fa-solid fa-arrow-left"></i></button>
+      <div>
+        <h2>{{name}}</h2>
+        <h4>333 posts</h4>
+      </div>
+    </header>
+    <div id="content">
+      <div id="imgBackground">
+        <img src="../../../assets/images/imgBackground.jpg" alt="image of Background">
+        <div id="imgProfile">
+          <img src="../../../assets/images/imgProfile.jpg" alt="image of Profile">
+        </div>
+      </div>
+      <div id="editProfile">
+        <button class="btn btn-dark">Editar perfil</button>
+      </div>
+      <div id="data">
+        <div id="name">{{name}} {{lastname}}</div>
+        <div id="username">&#64;{{username}}</div>
+        <div id="bio">Entusiasmo es mi palabra favorita. Peleo por mantener el Alma de niño. Creo que la vida es un
+          Milagro y un Misterio.</div>
+        <div id="dates">
+          <div id="birthday"><i class="fa-solid fa-cake-candles"></i> {{birthday}}</div>
+          <div id="created"><i class="fa-solid fa-calendar-days"></i> Se unió {{createdAt}}</div>
+        </div>
+        <div id="followers">
+          <div><b>112</b><span>Following</span></div>
+          <div><b>14</b><span>Followers</span></div>
+        </div>
+      </div>
+      <div id="tabs">
+        <ul class="nav nav-tabs">
+          <li class="nav-item" *ngFor="let tab of tabs; let index = index" (click)="setTab(index)">
+            <a class="nav-link" [ngClass]="activatedTab == index ? 'active-tab' : ''">{{tab}}</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="posts" *ngIf="activatedTab == 0">
+          <!-- <app-posts-profile></app-posts-profile> -->
+          <app-post *ngFor="let post of postsUser" [post]="post"></app-post>
+        </div>
+        <div id="polls" *ngIf="activatedTab == 1">
+          <app-polls-profile></app-polls-profile>
+        </div>
+        <div id="reposts" *ngIf="activatedTab == 2">
+          <app-reposts-profile></app-reposts-profile>
+        </div>
+        <div id="lifeBook" *ngIf="activatedTab == 3">
+          <app-life-book></app-life-book>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="rightBar" #rightBar>
+    <app-search-bar (search)="observerChangeSearch($event)"></app-search-bar>
+    <div id="results" *ngIf="filteredUsers.length != 0">
+      <div id="user" *ngFor="let user of filteredUsers" [routerLink]="['/profile', user.username]">
+        <div id="imgUser">
+          <img src="https://i.pravatar.cc/300" alt="profile photo" width="60" height="60" class="rounded-circle me-4">
+        </div>
+        <div id="username">
+          <div class="name">
+            <h5>{{user.name}} {{user.lastname}}</h5>
+          </div>
+          <div>
+            <h5>&#64;{{user.username}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-suggestions></app-suggestions>
+  </div>
+</div>
