@@ -65,8 +65,8 @@ export class SignupComponent {
           rol: this.rol,
           name: formSignup.get('firstPart')?.get('name')?.value,
           lastname: formSignup.get('firstPart')?.get('lastname')?.value,
-          phone: formSignup.get('firstPart')?.get('phone')?.value,
-          email: formSignup.get('firstPart')?.get('email')?.value,
+          phone: this.showUseEmailDiv ? null : formSignup.get('firstPart')?.get('phone')?.value,
+          email: this.showUseEmailDiv ? formSignup.get('firstPart')?.get('email')?.value : null,
           birthday: formSignup.get('secondPart')?.get('birthday')?.value,
           password: formSignup.get('secondPart')?.get('password')?.value,
         };
@@ -77,13 +77,11 @@ export class SignupComponent {
           next: (response: any) => {
             console.log(response);
             console.log("Formulario válido");
-            // localStorage.setItem('jwt', response.jwt);
             this.userService.setCurrentUser(response.user);
           },
           error: (error: any) => {
             console.log("Formulario no valido al mandar los datos al backend");
             console.log(error);
-            // Maneja el error aquí si es necesario
           },
           complete: () => {
             console.log("Petición completa");
