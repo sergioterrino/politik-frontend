@@ -34,9 +34,9 @@ export class HomeComponent {
     this.currentUser = this.userService.getCurrentUser();
     console.log("home.ts - ngOnInit() - currentUser", this.currentUser);
     console.log("home.ts - ngOnInit() - currentUser.rol", this.currentUser.rol);
-    if (this.currentUser.rol == "citizen") this.showCreatorPosts = false;
+    // if (this.currentUser.rol == "citizen") this.showCreatorPosts = false;
     this.getPosts();
-    
+
     // me suscribo al Subject postDeleted para que cuando se elimine un post, se actualice la lista de posts
     this.postService.postDeleted.subscribe(() => {
       this.getPosts();

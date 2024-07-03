@@ -86,7 +86,7 @@ export class SignupComponent {
           complete: () => {
             console.log("Petición completa");
             this.closeDialog();
-            this.router.navigate(['/home']);
+            this.router.navigate(['/start']); // en vez de ir al home, ir al start para que se loguee.
           }
         });
       } else {

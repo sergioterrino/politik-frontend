@@ -40,24 +40,37 @@ export class UserService {
   }
 
   //mandará el userDTO al userController del backend para que setee los datos y los almacene en la base de datos
+  // signup(userDTO: any): Observable<any> {
+  //   return this.httpClient.post<any>(`${this.apiUrl}/api/users/signup`, userDTO, {
+  //     observe: 'response'
+  //   }).pipe(map((response: HttpResponse<any>) => {
+  //     const body = response.body;
+  //     const headers = response.headers;
+
+  //     const bearerToken = headers.get('Authorization')!;
+  //     console.log("user.service.ts - signup() - bearerToken ", bearerToken);
+  //     const jwt = bearerToken.replace('Bearer ', '');
+
+  //     console.log("user.service.ts - signup() - jwt ", jwt);
+
+  //     localStorage.setItem('jwt', jwt);
+
+  //     return body;
+  //   }));
+  // }
+
   signup(userDTO: any): Observable<any> {
     return this.httpClient.post<any>(`${this.apiUrl}/api/users/signup`, userDTO, {
       observe: 'response'
-    }).pipe(map((response: HttpResponse<any>) => {
-      const body = response.body;
-      const headers = response.headers;
-
-      const bearerToken = headers.get('Authorization')!;
-      console.log("user.service.ts - signup() - bearerToken ", bearerToken);
-      const jwt = bearerToken.replace('Bearer ', '');
-
-      console.log("user.service.ts - signup() - jwt ", jwt);
-
-      localStorage.setItem('jwt', jwt);
-
-      return body;
-    }));
+    }).pipe(
+      map((response: HttpResponse<any>) => {
+        return response.body;
+      })
+    );
   }
+
+
+
 
   //mando al backend el username y el password para que compruebe si es correcto
   // login(username: string, password: string): Observable<any> {
