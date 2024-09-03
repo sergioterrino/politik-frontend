@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Post } from 'src/app/models/Post';
 import { User } from 'src/app/models/User';
 import { PostService } from 'src/app/services/post/post.service';
+import { ModalCreatePostComponent } from '../modal-create-post/modal-create-post.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-post',
@@ -12,7 +14,7 @@ export class PostComponent {
 
   @Input() post!: Post;
 
-  constructor( private postService: PostService) { }
+  constructor( private postService: PostService, private dialog: MatDialog) { }
 
   getTimeSincePosted(postCreatedAt: string): string {
     const postDate = new Date(postCreatedAt);
@@ -38,6 +40,11 @@ export class PostComponent {
 
   editPost(postId: number) {
     console.log("post.component.ts - editPost() - ", postId);
+    this.dialog.open(ModalCreatePostComponent, {
+      width: '55%',
+      height: '40%',
+      data: { postId, isEditing: true, post: this.post }
+    })
   }
 
   deletePost(postId: number) {

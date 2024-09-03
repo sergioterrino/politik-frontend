@@ -2,7 +2,7 @@
   <button id="closeBtn" mat-button (click)="closeDialog()"><i class="fa-solid fa-xmark"></i></button>
   <div id="content">
     <div id="text">
-      <textarea placeholder="What is happening ?" #myTextarea (input)="onInput($event)"></textarea>
+      <textarea placeholder="What is happening ?" #myTextarea (input)="onInput($event)">{{text}}</textarea>
     </div>
     <div id="btns">
       <nav class="navbar">

@@ -26,10 +26,17 @@ export class StartComponent implements AfterViewInit {
     });
   }
 
+  // openDialogLogin() {
+  //   this.dialog.open(LoginComponent, {
+  //     width: '40%',
+  //     height: '90%',
+  //     panelClass: 'custom-dialog',
+  //   });
+  // }
   openDialogLogin() {
     this.dialog.open(LoginComponent, {
-      width: '40%',
-      height: '90%',
+      width: '500px',
+      height: '420px',
       panelClass: 'custom-dialog',
     });
   }
